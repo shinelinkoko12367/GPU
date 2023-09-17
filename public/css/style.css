@@ -55,12 +55,13 @@ body {
   font-family: Prime;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+
 }
 
 html {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   align-items: center;
   justify-content: center;
   background-color: black;
@@ -72,15 +73,72 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 640px;
-  height: 640px;
+  width: 500;
+  height: 500;
   border-radius: 50%;
   background-color: var(--primary-color);
-  background-image: url("../img/starfield_compass.svg");
+  background-color: black;
+  animation: pulsate 2s linear infinite;
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  background-position: center;
+
+
+  box-shadow:
+    0 0 0 10px #8D00FF,
+    0 0 0 20px black,
+    0 0 0 30px #004981;
+
+}
+
+@keyframes rotateColors {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulsate {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 10px #8D00FF,
+      0 0 0 20px black,
+      0 0 0 30px #ffe7e7;
+
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 10px #e6e5e7,
+      0 0 0 20px black,
+      0 0 0 30px #001aff;
+
+  }
+}
+
+img {
+  width: 50px;
+  animation: filterAnimation 3s linear infinite alternate;
+}
+
+@keyframes filterAnimation {
+  0% {
+    filter: grayscale(0%) brightness(100%) contrast(100%);
+  }
+
+
+
+  100% {
+    filter: sepia(100%) brightness(10px) contrast(80%);
+  }
+
 }
 
 .custom_text_container {
@@ -93,16 +151,43 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 35px;
+
+}
+
+img {
+  width: 180px;
+  height: 100px;
+  filter: grayscale(50%) brightness(80%) contrast(120%);
 }
 
 .custom_text_container .title {
   font-size: 30px;
   font-weight: 800;
+  color: #8D00FF;
+  animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #8D00FF;
+    /* Starting color */
+  }
+
+  50% {
+    color: #ff00e1;
+
+  }
+
+  100% {
+    color: #6f00ff;
+
+  }
 }
 
 .custom_text_container .subtitle {
   font-size: 20px;
   opacity: 80%;
+  color: #ffffff;
 }
 
 .info_wrapper {
@@ -123,12 +208,14 @@ body {
 .info_container .info {
   font-size: 20px;
   font-weight: 800;
+  color: #e6e6e6;
 }
 
 .info_container .title {
   font-size: 15px;
-  opacity: 80%;
+
 }
+
 .divider {
   height: 50px;
   border: 1px solid var(--primary-color);

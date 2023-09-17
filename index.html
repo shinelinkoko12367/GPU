@@ -5,9 +5,8 @@
   </header>
   <body>
     <div class="custom_text_container">
-      <p class="title">LUNA</p>
-      <p class="subtitle">MOON</p>
-    </div>
+      <img src="public\img\_logo.png" />
+      <p class="title">Thet Maung</p>
 
     <div class="info_wrapper">
       <div class="info_container">
@@ -29,6 +28,22 @@
         <p class="title">GPU</p>
       </div>
     </div>
+    <div class="custom_text_container">
+      <p class="subtitle"  id="current_datetime"></p>
+    </div>
+
   </body>
   <script type="module" src="./public/js/main.js"></script>
+  <script>
+    function updateDateTime() {
+      const dateTimeElement = document.getElementById('current_datetime');
+      const now = new Date();
+      const dateTimeString = now.toLocaleString();
+      dateTimeElement.textContent = dateTimeString;
+    }
+
+    updateDateTime();
+
+    setInterval(updateDateTime, 1000);
+  </script>
 </html>
